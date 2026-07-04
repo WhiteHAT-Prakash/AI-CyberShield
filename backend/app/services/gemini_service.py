@@ -6,8 +6,8 @@ from ..core.config import settings
 # Configure Gemini once at module load time
 genai.configure(api_key=settings.GEMINI_API_KEY)
 
-# Use gemini-1.5-flash for fast, cost-effective responses
-_model = genai.GenerativeModel("gemini-1.5-flash")
+# Use gemini-2.5-flash for fast, cost-effective responses
+_model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 def _extract_json(text: str) -> dict:

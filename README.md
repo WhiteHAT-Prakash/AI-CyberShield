@@ -4,8 +4,23 @@ AI CyberShield is an Agentic AI-powered intelligent cybersecurity assistant buil
 
 ## 📸 Screenshots
 
+### 1. User Authentication (Login)
 ![AI CyberShield Login Page](screenshots/login_page.png)
+
+### 2. Main System Dashboard
 ![AI CyberShield Dashboard](screenshots/dashboard_view.png)
+
+### 3. Phishing Detector (Safe vs. Malicious Inputs)
+* **Safe Input**:
+![Safe Low Risk Scan](screenshots/low_threat_analysis.png)
+* **Phishing Input**:
+![High Risk Phishing Scan](screenshots/high_threat_analysis.png)
+
+### 4. Cyber Copilot Chatbot (Gemini Response)
+![Chatbot Chat Session](screenshots/chatbot_response.png)
+
+### 5. Exposure Scoring & Diagnostic Analytics
+![Threat Score Screen](screenshots/threat_scoring.png)
 
 ---
 
