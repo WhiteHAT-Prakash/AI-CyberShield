@@ -5,7 +5,11 @@ export const authApi = {
   register: (data) => apiClient.post('/auth/register', data),
 
   /** Login and receive JWT token */
-  login: (data) => apiClient.post('/auth/login', data),
+  login: (data) => apiClient.post('/auth/login', data, {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  }),
 
   /** Fetch current authenticated user's profile */
   getMe: () => apiClient.get('/auth/me'),

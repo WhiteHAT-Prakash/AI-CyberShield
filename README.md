@@ -5,6 +5,7 @@ AI CyberShield is an Agentic AI-powered intelligent cybersecurity assistant buil
 ## 📸 Screenshots
 
 ![AI CyberShield Login Page](screenshots/login_page.png)
+![AI CyberShield Dashboard](screenshots/dashboard_view.png)
 
 ---
 

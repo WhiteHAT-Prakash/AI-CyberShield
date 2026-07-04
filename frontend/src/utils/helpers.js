@@ -39,8 +39,24 @@ export function getPasswordStrengthColor(score) {
  * Extracts a user-friendly API error message from an Axios error
  */
 export function getErrorMessage(error) {
-  return error?.response?.data?.detail
-      || error?.response?.data?.message
-      || error?.message
-      || 'An unexpected error occurred.'
+  const detail = error?.response?.data?.detail
+  if (detail) {
+    if (typeof detail === 'string') return detail
+    if (Array.isArray(detail)) {
+      return detail.map(err => {
+        // Strip out 'body' prefix from FastAPI validation location
+        const loc = err.loc ? err.loc.filter(l => l !== 'body').join('.') : ''
+        return `${loc ? loc + ': ' : ''}${err.msg}`
+      }).join(', ')
+    }
+    if (typeof detail === 'object') return JSON.stringify(detail)
+  }
+
+  const message = error?.response?.data?.message
+  if (message) {
+    if (typeof message === 'string') return message
+    if (typeof message === 'object') return JSON.stringify(message)
+  }
+
+  return error?.message || 'An unexpected error occurred.'
 }
