@@ -1,0 +1,78 @@
+{
+  "name": "CyberShield – Phishing Alert Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cybershield-phishing-alert",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"risk_level\"]}}",
+              "operation": "equals",
+              "value2": "high"
+            }
+          ]
+        }
+      },
+      "id": "if-high-risk",
+      "name": "If High Risk",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "alerts@cybershield.ai",
+        "toEmail": "={{$json[\"user_email\"]}}",
+        "subject": "⚠️ AI CyberShield: High-Risk Phishing Detected",
+        "text": "=Hello {{$json[\"user_name\"]}},\n\nOur AI has detected a HIGH-RISK phishing attempt in your submission.\n\nDetails:\n- Risk Level: {{$json[\"risk_level\"]}}\n- Confidence: {{$json[\"confidence\"]}}%\n- Detected at: {{$json[\"detected_at\"]}}\n\nPlease review your AI CyberShield dashboard for full analysis.\n\nStay safe,\nAI CyberShield Security Team",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Send Alert Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [680, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"status\": \"alert_sent\", \"risk_level\": \"{{$json[\\\"risk_level\\\"]}}\"}"
+      },
+      "id": "respond-webhook",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [[ { "node": "If High Risk", "type": "main", "index": 0 } ]]
+    },
+    "If High Risk": {
+      "main": [
+        [ { "node": "Send Alert Email",    "type": "main", "index": 0 } ],
+        [ { "node": "Respond to Webhook", "type": "main", "index": 0 } ]
+      ]
+    },
+    "Send Alert Email": {
+      "main": [[ { "node": "Respond to Webhook", "type": "main", "index": 0 } ]]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "tags": ["cybershield", "phishing", "alerts"]
+}

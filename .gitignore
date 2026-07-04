@@ -1,0 +1,54 @@
+# ============================================================
+# AI CyberShield – .gitignore
+# ============================================================
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.production
+.env.staging
+backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+*.egg
+.mypy_cache/
+
+# Node.js / Frontend
+node_modules/
+frontend/dist/
+frontend/.env
+.npm/
+*.tsbuildinfo
+
+# Alembic
+# (Keep alembic/versions tracked)
+alembic/__pycache__/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+htmlcov/
+.coverage
+coverage.xml
