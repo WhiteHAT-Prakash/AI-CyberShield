@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // Base URL comes from environment variable (set in .env)
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1'
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ai-cybershield-vwls.onrender.com/api/v1'
 
 /**
  * Central Axios instance for all API calls.
