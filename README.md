@@ -1,168 +1,385 @@
-# AI CyberShield – Intelligent Cybersecurity Assistant
+# AI CyberShield – Agentic AI Powered Intelligent Cybersecurity Assistant
 
-AI CyberShield is an Agentic AI-powered intelligent cybersecurity assistant built to protect digital environments from social engineering threats, weak credentials, and malicious links. Powered by the Google Gemini API, it provides live analysis, exposure scoring, custom check checklists, and automated n8n notifications.
+> **"Your Personal AI Cybersecurity Assistant — Protecting You 24/7."**
 
-## 📸 Screenshots
+AI CyberShield is an Agentic AI-powered intelligent cybersecurity assistant designed to help students, professionals, and small businesses detect phishing attacks, analyze password strength, identify suspicious URLs, and receive personalized cybersecurity recommendations. Powered by the Google Gemini API and automated using n8n workflows, the system provides real-time threat analysis, exposure scoring, and security awareness assistance through an intuitive web application.
 
-### 1. User Authentication (Login)
+## 🌐 Live Demo
+
+> ✅ **The app is fully deployed and accessible from any device — no installation required!**
+
+| Service | URL |
+|---------|-----|
+| 🖥️ **Frontend App (Vercel)** | [https://ai-cyber-shield-black.vercel.app](https://ai-cyber-shield-black.vercel.app) |
+| 🖥️ **Frontend App (Render)** | [https://ai-cybershield-frontend.onrender.com](https://ai-cybershield-frontend.onrender.com) |
+| ⚙️ **Backend API** | [https://ai-cybershield-vwls.onrender.com](https://ai-cybershield-vwls.onrender.com) |
+| 📖 **API Docs (Swagger)** | [https://ai-cybershield-vwls.onrender.com/api/docs](https://ai-cybershield-vwls.onrender.com/api/docs) |
+
+> 💡 Open the frontend link on **any mobile, tablet, or PC** to use the full application instantly.
+
+
+
+# 📸 Screenshots
+
+## 1. User Authentication (Login)
 ![AI CyberShield Login Page](screenshots/login_page.png)
 
-### 2. Main System Dashboard
+---
+
+## 2. Dashboard
 ![AI CyberShield Dashboard](screenshots/dashboard_view.png)
 
-### 3. Phishing Detector (Safe vs. Malicious Inputs)
-* **Safe Input**:
+---
+
+## 3. AI Phishing Detector
+
+### Safe Input
 ![Safe Low Risk Scan](screenshots/low_threat_analysis.png)
-* **Phishing Input**:
+
+### Suspicious Input
 ![High Risk Phishing Scan](screenshots/high_threat_analysis.png)
 
-### 4. Cyber Copilot Chatbot (Gemini Response)
-![Chatbot Chat Session](screenshots/chatbot_response.png)
+---
 
-### 5. Exposure Scoring & Diagnostic Analytics
-![Threat Score Screen](screenshots/threat_scoring.png)
+## 4. AI Cybersecurity Chatbot
+![Chatbot Response](screenshots/chatbot_response.png)
 
 ---
 
-## 🚀 Tech Stack
-
-### Frontend
-- **React 18** (UI structure)
-- **Vite** (Rapid development & compilation bundler)
-- **Tailwind CSS v3** (Glassmorphism cybersecurity dark theme)
-- **React Router v6** (Protected routing & route guards)
-- **Axios** (API query engine with 401 interceptors)
-- **Framer Motion** (Visual micro-animations)
-- **React Icons** (UI icons)
-
-### Backend
-- **FastAPI** (Python web framework)
-- **SQLAlchemy 2.0** (Database ORM model layer)
-- **Alembic** (Database migration schemas migrations)
-- **JWT (python-jose)** (Bearer token authentication)
-- **Bcrypt (passlib)** (Password hashing)
-
-### Database & Automation
-- **Neon PostgreSQL** (Serverless cloud database)
-- **Google Gemini API** (Generative AI logic core)
-- **n8n Community Edition** (Workflow notification automations)
+## 5. Threat Risk Scoring Dashboard
+![Threat Scoring](screenshots/threat_scoring.png)
 
 ---
 
-## 📂 Folder Structure
+# 🚀 Technology Stack
 
-```
-ai-cybershield/
-├── frontend/                  # React + Vite + Tailwind CSS
-│   ├── public/                # Static public assets
+## Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
+- Framer Motion
+- React Icons
+
+## Backend
+
+- FastAPI
+- SQLAlchemy
+- Alembic
+- JWT Authentication
+- Passlib (Bcrypt)
+- Pydantic
+
+## Database
+
+- Neon PostgreSQL
+
+## Artificial Intelligence
+
+- Google Gemini API
+
+## Workflow Automation
+
+- n8n Community Edition
+
+## Deployment
+
+- Vercel
+- Render
+- GitHub
+
+---
+
+# ✨ Features
+
+- User Authentication
+- AI Phishing Detection
+- Password Strength Analyzer
+- Suspicious URL Scanner
+- AI Cybersecurity Chatbot
+- Personalized Security Recommendations
+- Threat Risk Scoring
+- Security Checklist Generator
+- Real-Time Alerts
+- User Activity History
+- n8n Workflow Automation
+
+---
+
+# 📂 Project Structure
+
+```text
+AI-CyberShield/
+│
+├── frontend/
+│   ├── public/
 │   ├── src/
-│   │   ├── api/               # Axios API modules
-│   │   ├── components/        # Reusable common elements and layout
-│   │   ├── contexts/          # State providers (Auth/Alerts)
-│   │   ├── pages/             # Route-level view folders
-│   │   ├── router/            # React Router configurations
-│   │   ├── utils/             # Helper formatters and indicators
-│   │   └── index.css          # Main stylesheet with custom themes
-│   ├── vercel.json            # Vercel deployment overrides
-│   └── tailwind.config.js     # Custom color tokens
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── contexts/
+│   │   ├── pages/
+│   │   ├── router/
+│   │   ├── utils/
+│   │   └── index.css
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   └── package.json
 │
-├── backend/                   # FastAPI Web API
+├── backend/
 │   ├── app/
-│   │   ├── api/               # Router endpoints (auth, chatbot, scanner)
-│   │   ├── core/              # DB configs, secrets settings, auth guards
-│   │   ├── models/            # SQLAlchemy schemas declarations
-│   │   ├── schemas/           # Pydantic payloads validations
-│   │   ├── services/          # Gemini AI connector modules
-│   │   └── main.py            # FastAPI server entrypoint
-│   ├── alembic/               # DB migration history versions
-│   ├── tests/                 # Pytest unit tests
-│   └── Procfile               # Render web container configuration
+│   │   ├── api/
+│   │   ├── core/
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   └── main.py
+│   ├── alembic/
+│   ├── tests/
+│   ├── requirements.txt
+│   └── Procfile
 │
-└── n8n/                       # Automation workflow templates
-    ├── phishing_alert_workflow.json
-    ├── email_notification_workflow.json
-    └── threat_report_workflow.json
+├── n8n/
+│   ├── phishing_alert_workflow.json
+│   ├── email_notification_workflow.json
+│   └── threat_report_workflow.json
+│
+├── docs/
+│
+├── screenshots/
+│
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## ⚙️ Environment Variables
+# ⚙️ Environment Variables
 
-### Frontend (`frontend/.env`)
+## Frontend (`frontend/.env`)
+
 ```env
 VITE_API_BASE_URL=http://localhost:8000/api/v1
 ```
 
-### Backend (`backend/.env`)
+## Backend (`backend/.env`)
+
 ```env
-DATABASE_URL=postgresql://neondb_owner:...neon.tech/neondb?sslmode=require
-SECRET_KEY=6b9102862d693b5a20aaf0339755ec32...
+DATABASE_URL=YOUR_NEON_DATABASE_URL
+SECRET_KEY=YOUR_SECRET_KEY
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
-GEMINI_API_KEY=AQ.Ab8RN...
-N8N_WEBHOOK_URL=http://localhost:5678/webhook/...
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+N8N_WEBHOOK_URL=YOUR_N8N_WEBHOOK_URL
 FRONTEND_URL=http://localhost:5173
 ```
 
 ---
 
-## 💻 Running the Application Locally
+# 💻 Running the Application
 
-### Prerequisite Checklist
-- **Node.js LTS** (v20+) installed
-- **Python** (v3.12+) installed
-- **Neon PostgreSQL** account & connection string
-- **Google Gemini API** key
+## Prerequisites
 
-### 1. Backend Server Setup
+- Node.js (v20 or later)
+- Python (v3.12 or later)
+- Neon PostgreSQL Database
+- Google Gemini API Key
+- n8n Community Edition
+
+---
+
+## Backend Setup
+
 ```bash
 cd backend
+
 python -m venv venv
+
+# Windows
 venv\Scripts\activate
+
+# macOS/Linux
+source venv/bin/activate
+
 pip install -r requirements.txt
 
-# Run migrations to update Neon PostgreSQL
 alembic upgrade head
 
-# Start development API server
 uvicorn app.main:app --reload
 ```
-API docs will be available at: `http://localhost:8000/api/docs`
 
-### 2. Frontend client Setup
+Backend URL
+
+```
+http://localhost:8000
+```
+
+Swagger Documentation
+
+```
+http://localhost:8000/docs
+```
+
+---
+
+## Frontend Setup
+
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
-Client will launch at: `http://localhost:5173`
+
+Frontend URL
+
+```
+http://localhost:5173
+```
 
 ---
 
-## 🌐 Deploying to Production
+# 🤖 AI Modules
 
-### 1. Backend on Render
-- Connect your GitHub repository to **Render**.
-- Create a new **Web Service**.
-- Select environment: **Python**.
-- Build Command: `pip install -r requirements.txt`.
-- Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`.
-- Add environment variables from `backend/.env` into Render's dashboard.
+### AI Phishing Detector
 
-### 2. Frontend on Vercel
-- Import your repository into **Vercel**.
-- Add environment variable `VITE_API_BASE_URL` pointing to your deployed Render API (e.g. `https://api-cybershield.onrender.com/api/v1`).
-- Trigger deployment. `vercel.json` will automatically configure routing.
+Analyzes:
 
----
+- Emails
+- SMS Messages
+- WhatsApp Messages
 
-## 🤖 n8n Automations Setup
-1. Open your **n8n dashboard** (`http://localhost:5678`).
-2. Click **Import from File** and select any JSON workflow from the `n8n/` folder.
-3. Configure your mail node settings (SMTP credentials).
-4. Activate the webhooks.
+Returns:
+
+- Safe
+- Suspicious
+- Dangerous
 
 ---
 
-## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+### Password Strength Analyzer
+
+Checks:
+
+- Password Length
+- Complexity
+- Symbols
+- Numbers
+- Uppercase
+- Lowercase
+
+Provides AI-generated recommendations.
+
+---
+
+### URL Scanner
+
+Detects:
+
+- Suspicious URLs
+- Shortened Links
+- Phishing Domains
+
+Provides a risk score and explanation.
+
+---
+
+### AI Cybersecurity Chatbot
+
+Powered by Google Gemini API.
+
+Answers cybersecurity questions including:
+
+- Phishing
+- Malware
+- Password Security
+- Social Engineering
+- Safe Browsing
+- Online Privacy
+
+---
+
+# 🔄 n8n Workflow Automation
+
+Included Workflows:
+
+- Email Phishing Detection
+- Threat Alert Notification
+- Password Analysis
+- URL Analysis
+- Security Checklist Generation
+- Weekly Security Reports
+
+---
+
+# 🌐 Deployment
+
+## Backend — Live on Render
+
+🔗 **Live URL**: [https://ai-cybershield-vwls.onrender.com](https://ai-cybershield-vwls.onrender.com)
+
+Build Command
+
+```bash
+pip install -r requirements.txt
+```
+
+Start Command
+
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
+```
+
+---
+
+## Frontend — Live on Render Static Sites
+
+🔗 **Live URL**: [https://ai-cybershield-frontend.onrender.com](https://ai-cybershield-frontend.onrender.com)
+
+Set environment variable on Render:
+
+```env
+VITE_API_BASE_URL=https://ai-cybershield-vwls.onrender.com/api/v1
+```
+
+---
+
+## Database
+
+Use **Neon PostgreSQL**
+
+Configure the `DATABASE_URL` environment variable.
+
+---
+
+
+# 📈 Future Scope
+
+- Browser Extension
+- Android Application
+- iOS Application
+- Multi-Language Support
+- AI Threat Intelligence
+- Cloud Security Monitoring
+- Enterprise Dashboard
+- Advanced Threat Analytics
+
+---
+
+# 👨‍💻 Developer
+
+**Prakash Salvi**
+
+Yadavrao Tasgaonkar Institute of Engineering and Technology
+
+Department of Computer Engineering
+
+AICTE Lenovo AI Internship
+
+---
+
+# 📄 License
+
+This project is developed for educational purposes as part of the **AICTE Lenovo AI Internship Program**.
